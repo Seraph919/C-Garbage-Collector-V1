@@ -1,5 +1,24 @@
 #include "garbage_collector.h"
 
+void	free_garbage(t_garbage **garbage)
+{
+	t_garbage	*temp;
+
+	if (!garbage)
+		return ;
+	if (*garbage)
+	{
+		while (*garbage)
+		{
+			temp = *garbage;
+			*garbage = (*garbage)->next;
+			if (temp->allocated)
+				free(temp->allocated);
+			free(temp);
+		}
+	}
+}
+
 t_garbage	*new_garbage(void *allocated)
 {
 	t_garbage	*new;

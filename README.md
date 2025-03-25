@@ -18,4 +18,4 @@ Designed to be used in C programs that manually manage memory
 
 1. Include the garbage collector files in your program.
 2. Use `maloc()` to allocate memory instead of `malloc()`.
-3. At the end of your program, use `free_garbage()` to free all allocated memory.
+3. At the end of your program, use `free_garbage(data()->garbage)` to free all allocated memory.
